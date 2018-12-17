@@ -1,0 +1,83 @@
+body{
+  /* Desktop */
+  position: relative;
+  width: 1000px;
+  height: 700px;
+
+  background: #FFFFFF;
+}
+
+/*gear*/
+.parent{
+  display: flex;
+  height: 500px;
+}
+
+.gear{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background: #848484;
+  border-radius: 50%;
+  animation-name: spin;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.gear .center{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 10;
+  width: 100px;
+  height: 100px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.tooth{
+  position: absolute;
+  top: -25px;
+  left: 75px;
+  z-index: 1;
+  width: 45px;
+  height: 250px;
+  background:#848484;
+}
+
+.tooth:nth-child(2){
+  transform: rotate(45deg);
+}
+
+.tooth:nth-child(3){
+  transform: rotate(90deg);
+}
+
+.tooth:nth-child(4){
+  transform: rotate(135deg);
+}
+
+/* ASK */
+.text{
+  position: static;
+  width: 100px;
+  height: 100px;
+  left: 450px;
+  bottom: 374px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 150px;
+
+  color: #00AA33;
+}
+
+/*animation*/
+@keyframes  spin{
+  from {transform: rotate(0deg); }
+  to {transform: rotate(360deg);}
+}
