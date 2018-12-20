@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 body{
   background:#ffffff;
   width:1200px;
@@ -5,106 +7,183 @@ body{
 }
 /*header*/
 header {
-  padding:10px;
+  margin: 10px;
+  padding: 10px;
+  height: 30px;
   background: #7c7c7c;
 }
 
-#nav-drawer {
-  position: relative;
+.menu * {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  color: #cb0404;
+  font: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: left;
+  text-decoration: none;
+  list-style: none;
 }
 
-/*チェックボックス等は非表示に*/
-.nav-unshown {
-  display:none;
+.menu  {
+  color: inherit;
+  text-decoration: none;
 }
 
-/*アイコンのスペース*/
-#nav-open {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  vertical-align: middle;
+.menu :visited {
+  color: #749c2c;
 }
 
-/*ハンバーガーの形をCSSで表現*/
-#nav-open span, #nav-open span:before, #nav-open span:after {
-  position: absolute;
-  height: 3px;
-  width: 25px;
-  border-radius: 3px;
-  background: #ffffff;
-  display: block;
-  content: '';
-  cursor: pointer;
-}
-
-#nav-open span:before {
-  bottom: -8px;
-}
-
-#nav-open span:after {
-  bottom: -16px;
-}
-
-/*閉じる用の薄黒箇所*/
-#nav-close {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0;
+.menu .menu_1 {
   width: 100%;
   height: 100%;
-  background: black;
-  opacity: 0;
-  transition: .3s ease-in-out;
-}
-
-/*メニューの中身*/
-#nav-content {
-  overflow: auto;
   position: fixed;
+  z-index: 999;
+  background-color: rgba(51, 51, 51, 0.5);
+  display: none;
   top: 0;
   left: 0;
-  z-index: 9999;
-  width: 90%;
-  max-width: 250px;
-  height: 100%;
-  background: #fff;
-  transition: .3s ease-in-out;
-  -webkit-transform: translateX(-105%);
-  transform: translateX(-105%);
 }
 
-/*チェックがついたら表示させる*/
-#nav-input:checked ~ #nav-close {
+.menu .menu_button {
   display: block;
-  opacity: .5;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 42px;
+  letter-spacing: 0.1em;
+  color: #ea1a06;
+  cursor: pointer;
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 1001;
+  text-align: center;
+  outline: none;
 }
 
-#nav-input:checked ~ #nav-content {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+.menu .menu_button.active .menu_bar {
+  display: block;
+  height: 2px;
+  margin: 10px 0;
+  background-color: #ea1a06;
+  transition: all 0.2s;
+  transform-origin: 0 0;
 }
 
-.header-logo-menu{
-  display: flex;
-  display: -moz-flex;
-  display: -o-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
-  flex-direction: row;
-  -moz-flex-direction: row;
-  -o-flex-direction: row;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
+.menu .menu_button.active .menu_bar1 {
+  background-color: #ea1a06;
+  display: block;
+  transform: rotate(30deg);
+}
+
+.menu .menu_button.active .menu_bar2 {
+  background-color: #ea1a06;
+  display: block;
+  opacity: 0;
+}
+
+.menu .menu_button.active .menu_bar3 {
+  background-color:  #ea1a06;
+  display: block;
+  transform: rotate(-30deg);
+}
+
+.menu .button.active .menu_text {
+  display: none;
+}
+
+.menu .menu_button.active .menu_text_close {
+  display: block;
+}
+
+.menu .menu_bar {
+  display: block;
+  color: #ea1a06;
+  height: 2px;
+  margin: 10px 0;
+  transition: all 0.2s;
+  transform-origin: 0 0;
+}
+
+.menu .menu_text {
+  text-align: center;
+  font-size: 10px;
+}
+
+.menu .menu_text_close {
+  letter-spacing: 0.08em;
+  display: none;
+}
+
+.menu .menu_text {
+  display: block;
+}
+
+.menu .menu_nav_wrapper {
+  width: 312px;
+  height: 100%;
+  background-color: #749c2c;
+  transition: all 0.2s;
+  transform: translate(312px);
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #FFF;
+}
+
+.menu .menu_nav_wrapper.open {
+  transform: translate(0);
+}
+
+.menu.left .menu_button {
+  right: auto;
+  left: 32px;
+}
+
+.menu.left .menu_nav_wrapper {
+  transform: translate(-312px);
+  right: auto;
+  left: 0;
+}
+
+.menu.left .menu_nav_wrapper.open {
+  transform: translate(0);
+}
+
+/*ナビの調整*/
+.menu .menu_nav {
+  padding: 112px 24px;
+  color: #aaaaaa;
+}
+
+.menu .menu_nav li {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/*buttonの調整*/
+.menu .menu_button {
+  color: #276490;
+}
+
+.menu .menu_button .menu_bar {
+  background-color: #276490;
 }
 
 /*ロゴやサイトタイトルをセンタリング*/
 .logo-erea{
   text-align:center;
-  margin:auto;
+  position: relative;
+  margin-right: auto;
   font-size: 30px;
   color: #cce02f;
 }
@@ -118,6 +197,8 @@ header {
 
 .gear{
   position: relative;
+  top: 20px;
+  right: 450px;
   width: 200px;
   height: 200px;
   margin: auto;
@@ -162,11 +243,10 @@ header {
   transform: rotate(135deg);
 }
 
+.gear{
+  transition: transform 10s ease-in-out;
+}
+
 .gear:hover{
-  transform: rotate(720deg);
-  -webkit-transition: rotate(720deg);
-  transition:  all 1s ease;
-  -webkit-transition: all 1s ease;
-  position: relative;
-  -webkit-position: relative;
+  transform: rotate(360deg);
 }
