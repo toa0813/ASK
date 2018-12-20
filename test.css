@@ -79,20 +79,14 @@ header {
 }
 
 .menu .menu_button.active .menu_bar1 {
-  background-color: #ea1a06;
-  display: block;
   transform: rotate(30deg);
 }
 
 .menu .menu_button.active .menu_bar2 {
-  background-color: #ea1a06;
-  display: block;
   opacity: 0;
 }
 
 .menu .menu_button.active .menu_bar3 {
-  background-color:  #ea1a06;
-  display: block;
   transform: rotate(-30deg);
 }
 
